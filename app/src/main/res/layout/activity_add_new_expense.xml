@@ -89,7 +89,7 @@
                 android:id="@+id/lineDate"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
-                android:background="?colorPrimary"
+                android:background="?colorOnSurface"
                 app:layout_constraintTop_toBottomOf="@id/dateRow"
                 app:layout_constraintStart_toEndOf="@id/firstGuideline"
                 app:layout_constraintEnd_toEndOf="parent" />
@@ -117,10 +117,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/categoryValue"
-                    android:text="Grocery" />
+                    android:text="" />
 
             </LinearLayout>
             <View
+                android:id="@+id/lineCategory"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
                 android:background="?colorOnSurface"
