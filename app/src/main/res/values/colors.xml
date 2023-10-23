@@ -6,4 +6,5 @@
     <color name="dark_primary_color">#FF5722</color>
     <color name="dark_foreground_color">#FFFFFF</color>
     <color name="foreground_color">#FF000000</color>
+    <color name="gray">#9B9A9A</color>
 </resources>
