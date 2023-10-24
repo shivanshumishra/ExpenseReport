@@ -26,7 +26,7 @@ class CategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        viewModel = ViewModelProvider(requireActivity(),AddNewExpenseViewModelFactory()).get(AddNewExpenseViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity(),AddNewExpenseViewModelFactory(requireActivity().application)).get(AddNewExpenseViewModel::class.java)
         binding = FragmentCategoryBinding.inflate(inflater,container,false)
         val items : ArrayList<String> = arrayListOf(
             Category.Food().title,

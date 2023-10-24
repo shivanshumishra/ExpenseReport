@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.expensereport.R
 import com.example.expensereport.addnewexpense.AddNewExpenseViewModel
 import com.example.expensereport.addnewexpense.AddNewExpenseViewModelFactory
+import com.example.expensereport.calculator.CalculatorFragment
 import com.example.expensereport.calendar.ui.CalendarFragment
 import com.example.expensereport.category.CategoryFragment
 import com.example.expensereport.databinding.ActivityAddNewExpenseBinding
@@ -18,11 +19,13 @@ import com.example.expensereport.utility.CalendarUtility.getTodayDate
 
 
 class AddNewExpenseActivity : AppCompatActivity(), CloseArrowClicked {
-    lateinit var binding: ActivityAddNewExpenseBinding
-    lateinit var saveButtonFragment: SaveButtonFragment
-    lateinit var calendarFragment: CalendarFragment
-    lateinit var categoryFragment: CategoryFragment
-    lateinit var viewModel: AddNewExpenseViewModel
+    private lateinit var binding: ActivityAddNewExpenseBinding
+    private lateinit var saveButtonFragment: SaveButtonFragment
+    private lateinit var calendarFragment: CalendarFragment
+    private lateinit var categoryFragment: CategoryFragment
+    lateinit var calculatorFragment: CalculatorFragment
+    private lateinit var viewModel: AddNewExpenseViewModel
+    private lateinit var currency : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddNewExpenseBinding.inflate(layoutInflater)
@@ -30,8 +33,10 @@ class AddNewExpenseActivity : AppCompatActivity(), CloseArrowClicked {
         saveButtonFragment = SaveButtonFragment()
         calendarFragment = CalendarFragment()
         categoryFragment = CategoryFragment()
+        calculatorFragment = CalculatorFragment()
+        currency = getString(R.string.Rs)
         replaceFragment(saveButtonFragment)
-        viewModel = ViewModelProvider(this@AddNewExpenseActivity, AddNewExpenseViewModelFactory()).get(AddNewExpenseViewModel::class.java)
+        viewModel = ViewModelProvider(this@AddNewExpenseActivity, AddNewExpenseViewModelFactory(application)).get(AddNewExpenseViewModel::class.java)
         init()
         initOberservers()
     }
@@ -44,6 +49,18 @@ class AddNewExpenseActivity : AppCompatActivity(), CloseArrowClicked {
         viewModel.categorySelected.observe(this) {
             binding.categoryValue.text = it
             onCloseClicked()
+        }
+
+        viewModel.amountExpression.observe(this) {
+            binding.amountValue.text = "$currency $it"
+        }
+
+        viewModel.okClicked.observe(this) {
+            if(it){
+                onCloseClicked()
+                refreshLine()
+                viewModel.okClicked.postValue(false)
+            }
         }
     }
 
@@ -61,6 +78,11 @@ class AddNewExpenseActivity : AppCompatActivity(), CloseArrowClicked {
             refreshLine()
             binding.lineCategory.background = getPrimaryColor()
             replaceFragment(categoryFragment)
+        }
+        binding.amountValue.setOnClickListener {
+            refreshLine()
+            binding.lineAmount.background = getPrimaryColor()
+            replaceFragment(calculatorFragment)
         }
     }
 

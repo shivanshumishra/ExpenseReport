@@ -4,6 +4,9 @@
          <item name="colorPrimary">@color/primary_color</item>
         <item name="colorSecondary">@color/foreground_color</item>
         <item name="colorOnSurface">@color/gray</item>
+        <item name="colorButtonNormal">#DFDCDC</item>
+        <item name="colorOnBackground">@color/white</item>
+
     </style>
 
     <style name="Theme.ExpenseReport" parent="Base.Theme.ExpenseReport" />

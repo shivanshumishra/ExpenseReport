@@ -23,7 +23,7 @@ class CalendarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCalendarBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(requireActivity(),AddNewExpenseViewModelFactory()).get(AddNewExpenseViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity(),AddNewExpenseViewModelFactory(requireActivity().application)).get(AddNewExpenseViewModel::class.java)
         return binding.root
     }
 
