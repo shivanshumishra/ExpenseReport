@@ -6,13 +6,14 @@ import androidx.lifecycle.ViewModel
 import com.example.expensereport.MyApp
 import com.example.expensereport.addnewexpense.db.ExpenseDao
 import com.example.expensereport.addnewexpense.db.model.Expense
+import com.example.expensereport.utility.CalendarUtility
 import com.fathzer.soft.javaluator.DoubleEvaluator
 import javax.inject.Inject
 
 class AddNewExpenseViewModel(
     application: Application
 ) : ViewModel()  {
-    private var _selectedDate = MutableLiveData<String>()
+    private var _selectedDate = MutableLiveData<String>(CalendarUtility.getTodayDate())
     val selectedDate : MutableLiveData<String> = _selectedDate
 
     private var _categorySelected = MutableLiveData<String>()
@@ -28,7 +29,7 @@ class AddNewExpenseViewModel(
     @Inject
     lateinit var expenseDao: ExpenseDao
 
-    lateinit var allExpenseList : MutableLiveData<List<Expense>>
+    var allExpenseList : MutableLiveData<List<Expense>>
 
     init {
         (application as MyApp).getAppComponent().inject(this)
