@@ -47,6 +47,7 @@ dependencies {
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
+    implementation("androidx.viewpager2:viewpager2:1.1.0-beta02")
     implementation(files("../libs/javaluator-3.0.2.jar"))
     implementation(files("../libs/javaluator-3.0.2-javadoc.jar"))
     implementation(files("../libs/javaluator-3.0.2-sources.jar"))

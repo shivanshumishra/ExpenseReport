@@ -31,7 +31,7 @@ class SaveButtonFragment : Fragment() {
                 return@setOnClickListener
             }
             val expense = Expense(
-                date = viewModel.selectedDate.value ?: "",
+                date = viewModel.selectedDate.value?.split(",")?.get(0) ?: "",
                 amount = viewModel.amountExpression.value ?: "",
                 category = viewModel.categorySelected.value ?: ""
             )
