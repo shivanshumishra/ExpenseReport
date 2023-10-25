@@ -11,7 +11,7 @@ import androidx.lifecycle.get
 import com.example.expensereport.R
 import com.example.expensereport.addnewexpense.AddNewExpenseViewModel
 import com.example.expensereport.addnewexpense.AddNewExpenseViewModelFactory
-import com.example.expensereport.addnewexpense.db.model.Expense
+import com.example.expensereport.db.model.Expense
 import com.example.expensereport.databinding.FragmentSaveButtonBinding
 
 class SaveButtonFragment : Fragment() {

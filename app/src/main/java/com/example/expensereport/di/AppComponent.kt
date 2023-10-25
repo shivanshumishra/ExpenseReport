@@ -1,5 +1,6 @@
 package com.example.expensereport.di
 
+import com.example.expensereport.MainViewModel
 import com.example.expensereport.addnewexpense.AddNewExpenseViewModel
 import dagger.Component
 import javax.inject.Singleton
@@ -8,4 +9,5 @@ import javax.inject.Singleton
 @Component(modules = [AppModule::class])
 interface AppComponent {
     fun inject(newExpenseViewModel: AddNewExpenseViewModel)
+    fun injectMainViewModel(mainViewModel: MainViewModel)
 }

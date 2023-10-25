@@ -1,10 +1,10 @@
-package com.example.expensereport.addnewexpense.db
+package com.example.expensereport.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.expensereport.addnewexpense.db.model.Expense
+import com.example.expensereport.db.model.Expense
 
 @Database(
     entities = [Expense::class],

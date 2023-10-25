@@ -1,4 +1,4 @@
-package com.example.expensereport.addnewexpense.db.model
+package com.example.expensereport.db.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

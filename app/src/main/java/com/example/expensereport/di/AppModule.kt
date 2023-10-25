@@ -2,8 +2,8 @@ package com.example.expensereport.di
 
 import android.app.Application
 import android.content.Context
-import com.example.expensereport.addnewexpense.db.ExpenseDao
-import com.example.expensereport.addnewexpense.db.ExpenseDatabase
+import com.example.expensereport.db.ExpenseDao
+import com.example.expensereport.db.ExpenseDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
